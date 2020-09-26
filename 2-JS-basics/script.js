@@ -55,4 +55,64 @@ console.log(x, y); // 26 26
 x = x * 2; // 52
 x *= 2; // 52
 
+/*****************************************************
+ * If / else statements
+ */
 
+ var firstName = 'John';
+ var civilStatus = 'single';
+
+ if (civilStatus === 'married') {
+   console.log(firstName + ' is married');
+ } else {
+  console.log(firstName + ' is single');
+ }
+
+ var isMarried = true;
+ if (isMarried) {
+   console.log(firstName + ' is married');
+  } else {
+  console.log(firstName + ' is single');
+  }
+
+/******************************************************
+ * Boolean Logic
+*/
+
+var firstName = 'John';
+var age = 16;
+
+if (age < 13) {
+  console.log(firstName + ' is a boy.')
+} else if (13 > age < 20) {
+  console.log(firstName + ' is a teenager.')
+} else {
+  console.log(firstName + ' is a man.')
+}
+
+/*****************************************************
+ * The ternary operator
+ */
+
+ var firstName = 'John';
+ var age = 16;
+
+ age >= 18 ? console.log(firstName + ' drinks bear.') : console.log(firstName + ' drinks juice.')
+
+var drink = age >= 18 ? 'bear' : 'juice';
+
+// Switch statement
+var job = 'driver';
+switch (job) {
+  case 'teacher':
+    console.log(firstName + ' teaches kids how to code.');
+    break;
+  case 'driver':
+    console.log(firstName + ' drives an uber in Lisbon.');
+    break;
+  case 'designer':
+    console.log(firstName + ' designs beautiful websites.');
+    break;
+  default:
+    console.log(firstName + ' does something else.');
+}
