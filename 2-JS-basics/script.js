@@ -43,5 +43,16 @@ var isFullAge = now - yearJohn >= fullAge;
 console.log(isFullAge); // true
 
 var ageJohn = now - yearJohn;
+var ageMark = 35;
+var average = (ageJohn + ageMark) / 2;
+console.log(average); // 32
+
+// Multiple assignments
+var x = y = (3 + 5) * 4 - 6; // 26
+console.log(x, y); // 26 26
+
+// More operators
+x = x * 2; // 52
+x *= 2; // 52
 
 
