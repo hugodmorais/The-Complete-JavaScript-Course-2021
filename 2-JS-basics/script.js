@@ -116,3 +116,14 @@ switch (job) {
   default:
     console.log(firstName + ' does something else.');
 }
+
+// falsy values: undefined, null, 0, '', NaN
+// truthy values: Not falsy numbers
+
+var height;
+
+if (height) {
+  console.log('Variable is defined');
+} else {
+  console.log('Variable has not been defined');
+}
