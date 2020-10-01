@@ -8,21 +8,23 @@ rest01 = 124;
 rest02 = 48;
 rest03 = 268;
 
-
-
-
-
-
 var tip_calculator = function(bill) {
   console.log("teste" + bill);
-  switch(bill) {
-    case "teste":
-      return "bill * 0.2";
+  if(bill < 50) {
+    return bill * 0.2;
+  } else if(50 < bill && bill < 200) {
+    return bill * 0.15;
+  } else {
+    return bill * 0.1
   }
 }
-
       
-console.log(tip_calculator("teste"))
+tips.push(tip_calculator(48))
+tips.push(tip_calculator(124))
+tips.push(tip_calculator(268))
+
+console.log(tips)
+
 
 
 
