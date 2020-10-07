@@ -10,13 +10,18 @@ GAME RULES:
 */
 
 var scores, roundScore, activePlayer, display_results, gamePlaying;
-
+var dice_values = []
 init();
 
 document.querySelector('.btn-roll').addEventListener('click', function() {
   if(gamePlaying) {
+    var six_repeat = false
     // 1. Random number
     var dice = Math.floor(Math.random() * 6) + 1;
+
+    dice_values.push(dice)
+    if ((dice_values[dice_values.length - 1] + dice_values[dice_values.length - 2]) == 12)
+      six_repeat = true 
 
     //2. Display the result
     var diceDOM = document.querySelector('.dice');
@@ -25,10 +30,14 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
 
 
     //3. Update the round score IF the rolled number was NOT a 1
-    if (dice !== 1) {
+    if (dice !== 1 && six_repeat == false) {
       //Add score
       roundScore += dice;
       document.querySelector('#current-' + activePlayer).textContent = roundScore;
+    } else if (six_repeat == true) {
+      //Next player
+      dice_values.length = 0
+      nextPlayer();
     } else {
       //Next player
       nextPlayer();
