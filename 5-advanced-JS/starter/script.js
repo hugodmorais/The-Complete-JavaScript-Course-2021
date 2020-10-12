@@ -33,19 +33,55 @@
 
 
 // Object.create
-var personProto = {
-  calculateAge: function() {
-    console.log(2016 - this.yearOfBirth);
-  }
+// var personProto = {
+//   calculateAge: function() {
+//     console.log(2016 - this.yearOfBirth);
+//   }
+// };
+
+// var john = Object.create(personProto);
+// john.name = 'John';
+// john.yearOfBirth = 1985;
+// john.job = 'teacher';
+
+// var jane = Object.create(personProto, {
+//   name: { value: 'Jane' },
+//   yearOfBirth: { value: 1985 },
+//   job: { value: 'designer' }
+// });
+
+// Primitives vs objects
+
+// Primitives
+var a = 23;
+var b = a;
+a = 46;
+console.log(a); // 46
+console.log(b); // 23
+
+// Objects
+var obj1 = {
+  name: 'John',
+  age: 26
+};
+var obj2 = obj1;
+obj1.age = 30;
+console.log(obj1.age); // 30
+console.log(obj2.age); // 30
+
+// Functions
+var age = 27;
+var obj = {
+  name: 'Jonas',
+  city: 'Lisbon'
 };
 
-var john = Object.create(personProto);
-john.name = 'John';
-john.yearOfBirth = 1985;
-john.job = 'teacher';
+function change(a, b) {
+  a = 30;
+  b.city = 'San Francisco';
+}
 
-var jane = Object.create(personProto, {
-  name: { value: 'Jane' },
-  yearOfBirth: { value: 1985 },
-  job: { value: 'designer' }
-});
+change(age, obj);
+
+console.log(age); // 27
+console.log(obj.city); // San Francisco
