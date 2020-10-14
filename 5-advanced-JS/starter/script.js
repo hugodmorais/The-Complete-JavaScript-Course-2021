@@ -101,9 +101,26 @@ function arrayCalc(arr, fn) {
 }
 
 function calculateAge(el) {
-  return 2020 - el;
+  return 2016 - el;
+}
+
+function isFullAge(el) {
+  return el >= 18;
+}
+
+function maxHeartRate(el) {
+  if (el >= 18 && el <= 81) {
+    return Math.round(206.9 - (0.67 * el));
+  } else {
+    return -1;
+  }
+  
 }
 
 var ages = arrayCalc(years, calculateAge);
+var fullAges = arrayCalc(ages, isFullAge);
+var rates = arrayCalc(ages, maxHeartRate);
 
-console.log(ages);
+console.log(ages); // [26, 52, 79, 11, 18]
+console.log(fullAges); // [true, true, false, true, true]
+console.log(rates); // [189, 173, 154, -1, 195]
