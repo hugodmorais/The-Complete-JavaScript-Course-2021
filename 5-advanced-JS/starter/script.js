@@ -124,3 +124,50 @@ var rates = arrayCalc(ages, maxHeartRate);
 console.log(ages); // [26, 52, 79, 11, 18]
 console.log(fullAges); // [true, true, false, true, true]
 console.log(rates); // [189, 173, 154, -1, 195]
+
+//////////////////////////////////////////////////////////////
+// Lecture: Functions returning functions
+
+function interviewQuestion(job) {
+  if (job === 'designer') {
+    return function(name) {
+      console.log(name + ', can you please explain what UX design is?');
+    }
+  } else if (job === 'teacher') {
+    return function(name) {
+      console.log('What subject do you teach, ' + name + '?');
+    }
+  } else {
+    return function(name) {
+      console.log('Hello ' + name + ', what do you do?');
+    }
+  }
+}
+
+var teacherQuestion = interviewQuestion('teacher');
+var designerQuestion = interviewQuestion('designer');
+
+teacherQuestion('John');
+designerQuestion('John');
+designerQuestion('Jane');
+designerQuestion('Mark');
+designerQuestion('Mike');
+
+interviewQuestion('teacher')('Mark');
+
+///////////////////////////////////////////////////////
+// Lecture: IIFE
+
+// function game() {
+//   var score = Math.random() * 10;
+//   console.log(score >= 5);
+// };
+// game();
+
+(function (goodLuck) {
+  var score = Math.random() * 10;
+  console.log(score >= 5 - goodLuck);
+})(5);
+
+
+console.log(score); // score is not defined
