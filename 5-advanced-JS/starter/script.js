@@ -227,3 +227,16 @@ function interviewQuestion(job) {
 };
 
 interviewQuestion('teacher')('John'); // What subject do you teach, John?
+
+//////////////////////////////////////////////////////////
+// Lecture: Bind, call and apply
+
+var john = {
+  name: 'John',
+  age: 26,
+  job: 'teacher',
+  presentation: function(style,
+  timeOfDay) {
+    
+  }
+}
