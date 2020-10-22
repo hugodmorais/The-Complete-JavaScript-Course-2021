@@ -232,11 +232,45 @@ interviewQuestion('teacher')('John'); // What subject do you teach, John?
 // Lecture: Bind, call and apply
 
 var john = {
-  name: 'John',
-  age: 26,
-  job: 'teacher',
-  presentation: function(style,
-  timeOfDay) {
-    
-  }
-}
+  name: "John",
+  age: 25,
+  presentation: function (style, timeOfDay) {
+    if (style === "formal") {
+      // console.log(
+      //   "Hi all, I'm " +
+      //     this.name +
+      //     " and my age is " +
+      //     this.age +
+      //     " and the time of the day is: " +
+      //     timeOfDay
+      // );
+
+      console.log(
+        `Hi all, I'm ${this.name} 
+        and my age is ${this.age} 
+        and the time of day is ${timeOfDay} 
+        Me likey!!`
+      );
+    }
+  },
+};
+
+john.presentation("formal", "morning");
+
+var emily = {
+  name: "Emily",
+  age: 22,
+};
+
+// We can use the presentation fn of john for emily
+john.presentation.call(emily, "formal", "morning");
+
+// Another way for method borrowing but wont work as the function
+// dosent expect array as input
+john.presentation.apply(emily, ["friendly", "afternoon"]);
+
+var johnFriendly = 
+john.presentation.bind(john, 'friendly');
+
+johnFriendly('morning');
+johnFriendly('night');
